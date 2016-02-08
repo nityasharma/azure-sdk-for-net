@@ -20,51 +20,54 @@
 // code is regenerated.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using Hyak.Common;
 using Microsoft.Azure.Management.HDInsight.Models;
 
 namespace Microsoft.Azure.Management.HDInsight.Models
 {
-    public partial class ClusterDefinition
+    public partial class SecurityProfile
     {
-        private Uri _blueprintUri;
+        private ActiveDirectoryConfiguration _activeDirectoryConfiguration;
         
         /// <summary>
-        /// Optional. Gets or sets the link to the blueprint.
+        /// Optional. Gets or sets the active directory configuration.
         /// </summary>
-        public Uri BlueprintUri
+        public ActiveDirectoryConfiguration ActiveDirectoryConfiguration
         {
-            get { return this._blueprintUri; }
-            set { this._blueprintUri = value; }
+            get { return this._activeDirectoryConfiguration; }
+            set { this._activeDirectoryConfiguration = value; }
         }
         
-        private HDInsightClusterType _clusterType;
+        private string _roleAdminGroupDN;
         
         /// <summary>
-        /// Optional. Gets or sets the type of cluster.
+        /// Optional. Optional. Gets or sets the DN for role admin group.
         /// </summary>
-        public HDInsightClusterType ClusterType
+        public string RoleAdminGroupDN
         {
-            get { return this._clusterType; }
-            set { this._clusterType = value; }
+            get { return this._roleAdminGroupDN; }
+            set { this._roleAdminGroupDN = value; }
         }
         
-        private string _configurations;
+        private IList<string> _roleUsersGroupDNs;
         
         /// <summary>
-        /// Optional. Gets or sets the cluster configurations.
+        /// Optional. Optional. Gets or sets the DNs for user groups
         /// </summary>
-        public string Configurations
+        public IList<string> RoleUsersGroupDNs
         {
-            get { return this._configurations; }
-            set { this._configurations = value; }
+            get { return this._roleUsersGroupDNs; }
+            set { this._roleUsersGroupDNs = value; }
         }
         
         /// <summary>
-        /// Initializes a new instance of the ClusterDefinition class.
+        /// Initializes a new instance of the SecurityProfile class.
         /// </summary>
-        public ClusterDefinition()
+        public SecurityProfile()
         {
+            this.RoleUsersGroupDNs = new LazyList<string>();
         }
     }
 }

@@ -43,7 +43,8 @@ namespace Microsoft.Azure.Management.HDInsight.Models
         private string _roleAdminGroupDN;
         
         /// <summary>
-        /// Optional. Optional. Gets or sets the DN for role admin group.
+        /// Optional. Optional. Gets or sets the distinguished name for role
+        /// admin group.
         /// </summary>
         public string RoleAdminGroupDN
         {
@@ -54,7 +55,8 @@ namespace Microsoft.Azure.Management.HDInsight.Models
         private IList<string> _roleUsersGroupDNs;
         
         /// <summary>
-        /// Optional. Optional. Gets or sets the DNs for user groups
+        /// Optional. Optional. Gets or sets the distinguished names for user
+        /// groups
         /// </summary>
         public IList<string> RoleUsersGroupDNs
         {

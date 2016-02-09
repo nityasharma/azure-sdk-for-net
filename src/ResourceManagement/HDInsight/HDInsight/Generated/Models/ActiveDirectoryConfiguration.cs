@@ -87,7 +87,8 @@ namespace Microsoft.Azure.Management.HDInsight.Models
         private string _organizationalUnitDN;
         
         /// <summary>
-        /// Optional. Gets or sets the DN for organizational unit.
+        /// Optional. Gets or sets the distinguished name for organizational
+        /// unit.
         /// </summary>
         public string OrganizationalUnitDN
         {

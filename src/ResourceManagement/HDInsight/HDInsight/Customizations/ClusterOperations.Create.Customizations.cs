@@ -102,7 +102,7 @@ namespace Microsoft.Azure.Management.HDInsight
                         ClusterType = clusterCreateParameters.ClusterType
                     },
                     ClusterVersion = clusterCreateParameters.Version,
-                    OperatingSystemType = clusterCreateParameters.OSType
+                    OperatingSystemType = clusterCreateParameters.OSType                    
                 }
             };
 
@@ -143,7 +143,7 @@ namespace Microsoft.Azure.Management.HDInsight
                         configurations.Add(configSet.Key, configSet.Value);
                     }
                 }
-            }
+            }            
 
             var serializedConfig = JsonConvert.SerializeObject(configurations);
             createParamsExtended.Properties.ClusterDefinition.Configurations = serializedConfig;
@@ -153,6 +153,7 @@ namespace Microsoft.Azure.Management.HDInsight
             createParamsExtended.Properties.ComputeProfile = new ComputeProfile();
             foreach (var role in roles)
             {
+                role.SecurityProfile = clusterCreateParameters.SecurityProfile;
                 createParamsExtended.Properties.ComputeProfile.Roles.Add(role);
             }
 
